@@ -27,4 +27,4 @@
                                               (random word-size)
                                               (random word-size)) words))))
 
-(print (generate-passphrase "wordlist.txt"))
+(format t "~a" (generate-passphrase "wordlist.txt"))
