@@ -1,6 +1,6 @@
 ## passphrase.lisp
 
-Simple Lisp script to generate [XKCD style passwords / passphrases](http://preshing.com/20110811/xkcd-password-generator/).
+Simple Lisp script to generate [XKCD style passwords / passphrases](https://xkcd.com/936/).
 
 ### Requirements
 
