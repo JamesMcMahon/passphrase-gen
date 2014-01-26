@@ -20,7 +20,7 @@
   (format nil "~{~A~^ ~}" string-list))
 
 (defun generate-passphrase (filename)
-    (let* ((words (file->list "wordlist.txt"))
+    (let* ((words (file->list filename))
            (word-size (length words)))
         (join-string-list (multiple-nth (list (random word-size)
                                               (random word-size)
