@@ -11,6 +11,7 @@
       collect line)))
 
 (defun multiple-nth (indices alist)
+  "Grab each element at index from a list."
   (loop
     for index in indices
     collect (nth index alist)))
@@ -19,12 +20,11 @@
   "Concatenates a list of strings and puts spaces between the elements."
   (format nil "~{~A~^ ~}" string-list))
 
-(defun generate-passphrase (filename)
+(defun generate-passphrase (filename size)
   (let* ((words (file->list filename))
          (word-size (length words)))
-    (string-downcase (join-string-list (multiple-nth (list (random word-size)
-                                                           (random word-size)
-                                                           (random word-size)
-                                                           (random word-size)) words)))))
+    (string-downcase (join-string-list
+                       (multiple-nth
+                         (loop repeat size collect (random word-size)) words)))))
 
-(format t "~a" (generate-passphrase "wordlist.txt"))
+(format t "~a" (generate-passphrase "wordlist.txt" 4))
