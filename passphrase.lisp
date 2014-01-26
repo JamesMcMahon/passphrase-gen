@@ -3,12 +3,12 @@
 (setf *random-state* (make-random-state t))
 
 (defun file->list (filename)
-    "Read in a file as a list"
-    (with-open-file (stream filename :if-does-not-exist nil)
-        (loop
-           for line = (read-line stream nil 'eof)
-           until (eq line 'eof)
-           collect line)))
+  "Read in a file as a list"
+  (with-open-file (stream filename :if-does-not-exist nil)
+    (loop
+      for line = (read-line stream nil 'eof)
+      until (eq line 'eof)
+      collect line)))
 
 (defun multiple-nth (indices alist)
   (loop
@@ -20,11 +20,11 @@
   (format nil "~{~A~^ ~}" string-list))
 
 (defun generate-passphrase (filename)
-    (let* ((words (file->list filename))
-           (word-size (length words)))
-        (string-downcase (join-string-list (multiple-nth (list (random word-size)
-                                              (random word-size)
-                                              (random word-size)
-                                              (random word-size)) words)))))
+  (let* ((words (file->list filename))
+         (word-size (length words)))
+    (string-downcase (join-string-list (multiple-nth (list (random word-size)
+                                                           (random word-size)
+                                                           (random word-size)
+                                                           (random word-size)) words)))))
 
 (format t "~a" (generate-passphrase "wordlist.txt"))
