@@ -22,9 +22,9 @@
 (defun generate-passphrase (filename)
     (let* ((words (file->list filename))
            (word-size (length words)))
-        (join-string-list (multiple-nth (list (random word-size)
+        (string-downcase (join-string-list (multiple-nth (list (random word-size)
                                               (random word-size)
                                               (random word-size)
-                                              (random word-size)) words))))
+                                              (random word-size)) words)))))
 
 (format t "~a" (generate-passphrase "wordlist.txt"))
