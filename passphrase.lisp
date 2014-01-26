@@ -3,7 +3,7 @@
 (setf *random-state* (make-random-state t))
 
 (defun file->list (filename)
-    "This shit will be awesome"
+    "Read in a file as a list"
     (with-open-file (stream filename :if-does-not-exist nil)
         (loop
            for line = (read-line stream nil 'eof)
